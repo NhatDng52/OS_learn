@@ -1,0 +1,4 @@
+pid,arrival_time,burst_time,priority
+p1,2,2,0
+p2,4,3,0
+p3,3,4,0
