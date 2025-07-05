@@ -18,7 +18,7 @@ class LockVariableSolution(Base_solution):
     def exit_critical_section_2(self):
         self.lock.value = 0
 if __name__ == "__main__":
-    base = Base_solution()
+    base = LockVariableSolution()
     args = sys.argv
 
     if len(args) < 2:
