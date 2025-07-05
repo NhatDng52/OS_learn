@@ -39,7 +39,7 @@ class Base_solution:
         p2.join()
         print("Final i =", self.shared_i.value)
     def test_progress(self, rounds=200):
-        "Test progress, nếu bị p2 bị chặn  vì p không muốn vào critical section thì p2 sẽ print đúng 1 dòng ở cuối do p1 chuyển want ở cuối"   
+        "Test progress, nếu bị p2 bị chặn  vì p không muốn vào critical section thì p2 sẽ print đúng 1 dòng ở cuối do p1 chuyển want ở cuối, nếu không thì p2 print trước p1"   
         self.shared_i = Value('i', 0, lock=False)  # lock=False để thực sự share raw
         p1 = Process(target=self.worker, args=("P1", 0, self.shared_i,0, rounds, self.enter_critical_section_1, self.exit_critical_section_1)) 
         p2 = Process(target=self.worker, args=("P2", 0, self.shared_i,1, 1     , self.enter_critical_section_2, self.exit_critical_section_2))
