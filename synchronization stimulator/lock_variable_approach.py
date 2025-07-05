@@ -1,5 +1,5 @@
 from multiprocessing import Process, Value
-import time
+import sys
 from base_case import Base_solution
 class LockVariableSolution(Base_solution):
     def __init__(self):
@@ -18,10 +18,25 @@ class LockVariableSolution(Base_solution):
     def exit_critical_section_2(self):
         self.lock.value = 0
 if __name__ == "__main__":
-    solution = LockVariableSolution()
-    print("Testing mutual exclusion:")
-    solution.test_mutual_exclusion(rounds=20000)
-    print("\nTesting progress:")
-    solution.test_progress(rounds=200)
-    print("\nTesting bounded waiting:")
-    solution.test_bounded_waiting(rounds=200, sleep_time=0.01)  # sleep_time = 0.01 để p2 chậm hơn p1
+    base = Base_solution()
+    args = sys.argv
+
+    if len(args) < 2:
+        print("Usage: python a.py <test_case> [rounds]")
+        print("test_case: 1=mutex, 2=progress, 3=bounded")
+        sys.exit(1)
+
+    test_case = int(args[1])
+    rounds = int(args[2]) if len(args) >= 3 else 100
+
+    if test_case == 1:
+        print("Testing mutual exclusion")
+        base.test_mutual_exclusion(rounds)
+    elif test_case == 2:
+        print("Testing progress")
+        base.test_progress(rounds)
+    elif test_case == 3:
+        print("Testing bounded waiting")
+        base.test_bounded_waiting(rounds)
+    else:
+        print("Invalid test_case")
