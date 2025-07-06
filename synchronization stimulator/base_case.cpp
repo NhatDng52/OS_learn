@@ -12,7 +12,7 @@ void BaseSolution::worker(
     void (*exit_critical_section)()
 ) {
     for (int i = 0; i < rounds; i++) {
-        // this_thread::sleep_for(chrono::milliseconds(sleep_time_ms));
+        this_thread::sleep_for(chrono::milliseconds(sleep_time_ms));
         if (want == 0 && i == rounds - 1) {
             print_mtx.lock();
             cout << name << ": changing want to 1" << endl;
