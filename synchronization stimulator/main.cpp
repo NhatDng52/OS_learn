@@ -1,16 +1,16 @@
-#include "base_case.h"
 #include <cstdlib>
-
+#include "base_case.h"
+#include "lock_variable_approach.h"
 
 int main(int argc, char* argv[]) {
 
     // thay đổi phần này để test
-    auto solution = new BaseSolution();
-
-    auto enter_critical_section_1 = dummy;
-    auto exit_critical_section_1  = dummy;
-    auto enter_critical_section_2 = dummy;
-    auto exit_critical_section_2  = dummy;
+    
+    auto solution = new LockVariableSolution();
+    auto enter_critical_section_1 = solution->enter_critical_section;
+    auto exit_critical_section_1  = solution->exit_critical_section;
+    auto enter_critical_section_2 = solution->enter_critical_section;
+    auto exit_critical_section_2  = solution->exit_critical_section;
 
     
     // nhận tham số từ cmd
@@ -40,7 +40,7 @@ int main(int argc, char* argv[]) {
     else if (test_case == 3) {
         cout << "Testing bounded waiting" << endl;
         solution->test_bounded_waiting(
-            rounds, 100,
+            rounds, 1000,
             enter_critical_section_1, exit_critical_section_1,
             enter_critical_section_2, exit_critical_section_2
         );
