@@ -1,4 +1,4 @@
-from multiprocessing import Process, Value
+from multiprocessing import Process, Value 
 import sys
 from base_case import Base_solution
 class LockVariableSolution(Base_solution):

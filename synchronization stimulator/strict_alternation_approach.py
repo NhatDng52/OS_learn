@@ -19,6 +19,7 @@ if __name__ == "__main__":
     base = StrictAlternationSolution()
     args = sys.argv
 
+
     if len(args) < 2:
         print("Usage: python a.py <test_case> [rounds]")
         print("test_case: 1=mutex, 2=progress, 3=bounded")
