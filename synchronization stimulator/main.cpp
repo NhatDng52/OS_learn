@@ -2,11 +2,12 @@
 #include "base_case.h"
 #include "lock_variable_approach.h"
 #include "strict_alternation_approach.h"
+#include "peterson_solution.h"
 int main(int argc, char* argv[]) {
 
     // thay đổi phần này để test
     
-    auto solution = new StrictAlternationSolution(); // hoặc LockVariableSolution()
+    auto solution = new PetersonSolution(); // hoặc LockVariableSolution, StrictAlternationSolution
     auto enter_critical_section_1 = solution->enter_critical_section_1;
     auto exit_critical_section_1  = solution->exit_critical_section_1;
     auto enter_critical_section_2 = solution->enter_critical_section_2;
