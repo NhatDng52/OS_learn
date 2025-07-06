@@ -2,19 +2,17 @@
 #include "base_case.h"
 // #include "lock_variable_approach.h"
 // #include "strict_alternation_approach.h"
-#include "peterson_solution.h"
+// #include "peterson_solution.h"
+#include "tsl.h"
 int main(int argc, char* argv[]) {
 
     // thay đổi phần này để test
     
-    auto solution = new PetersonSolution(); // hoặc LockVariableSolution, StrictAlternationSolution
-    PetersonSolution::turn = 0;
-    PetersonSolution::want[0] = 0;
-    PetersonSolution::want[1] = 0; // both threads initially do not want to enter
-    auto enter_critical_section_1 = solution->enter_critical_section_1;
-    auto exit_critical_section_1  = solution->exit_critical_section_1;
-    auto enter_critical_section_2 = solution->enter_critical_section_2;
-    auto exit_critical_section_2  = solution->exit_critical_section_2;
+    auto solution = new TestAndSetSolution();
+    auto enter_critical_section_1 = solution->enter_critical_section;
+    auto exit_critical_section_1  = solution->exit_critical_section;
+    auto enter_critical_section_2 = solution->enter_critical_section;
+    auto exit_critical_section_2  = solution->exit_critical_section;
 
     
     // nhận tham số từ cmd
