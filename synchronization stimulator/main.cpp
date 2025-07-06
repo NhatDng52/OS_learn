@@ -1,16 +1,16 @@
 #include <cstdlib>
 #include "base_case.h"
 #include "lock_variable_approach.h"
-
+#include "strict_alternation_approach.h"
 int main(int argc, char* argv[]) {
 
     // thay đổi phần này để test
     
-    auto solution = new LockVariableSolution();
-    auto enter_critical_section_1 = solution->enter_critical_section;
-    auto exit_critical_section_1  = solution->exit_critical_section;
-    auto enter_critical_section_2 = solution->enter_critical_section;
-    auto exit_critical_section_2  = solution->exit_critical_section;
+    auto solution = new StrictAlternationSolution(); // hoặc LockVariableSolution()
+    auto enter_critical_section_1 = solution->enter_critical_section_1;
+    auto exit_critical_section_1  = solution->exit_critical_section_1;
+    auto enter_critical_section_2 = solution->enter_critical_section_2;
+    auto exit_critical_section_2  = solution->exit_critical_section_2;
 
     
     // nhận tham số từ cmd
